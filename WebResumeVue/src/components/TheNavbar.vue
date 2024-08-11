@@ -5,14 +5,14 @@
 			<li class="top-links__item top-links__item--1"><a class="top-links__link"
 					href="https://www.linkedin.com/in/christopher-farrugia-3a51184b/" target="_blank">Linkedin</a></li>
 			<li class="top-links__item top-links__item--2"><a class="top-links__link"
-					href="https://www.linkedin.com/in/christopher-farrugia-3a51184b/" target="_blank">Facebook</a></li>
+					href="https://www.facebook.com/chrisfarrugia12/" target="_blank">Facebook</a></li>
 			<li class="top-links__item top-links__item--3"><a class="top-links__link"
-					href="https://www.linkedin.com/in/christopher-farrugia-3a51184b/" target="_blank">Github</a></li>
+					href="https://github.com/foxcodenine" target="_blank">Github</a></li>
 
 			<li v-on:click.prevent='false' class="top-links__item top-links__item--4 top-links__item--dd">
 				<a class="top-links__link" href="#">Certifications</a>
 				<ul class="dropdown">
-					<li v-on:click="openCertifications('VETAward-min.png')" class="dropdown__item">MQF Level 5</li>
+					<li v-on:click="openCertifications('VETAward-min.png')" class="dropdown__item">MQF</li>
 					<li v-on:click="openCertifications('zend.jpg')" class="dropdown__item">Zend</li>
 					<li v-on:click="openCertifications('lpic1.png')" class="dropdown__item">Lpic-1</li>
 				</ul>
@@ -30,7 +30,6 @@
 export default {
 	methods: {
 		openCertifications(c) {
-			console.log(c)
 			this.$emit('openCertifications', c)
 		}
 	}
@@ -38,20 +37,28 @@ export default {
 </script>
 
 <!--------------------------------------------------------------------->
+
 <style lang="scss" scoped>
+// Navigation Bar
 .nav-bar {
     grid-column: 2 / -2;
     grid-row: 1 / 2;
     z-index: 500;
-    padding: 6rem 0rem 4rem 0rem;
+    padding: 5rem 0 4rem;
     margin-bottom: 7rem;
 
     @include respond(900) {
         margin-bottom: 1rem;
-        padding: 3rem 0rem;
+    }
+    @include respond(600) {
+        padding: 5rem 0 3rem;
+    }
+    @include respond(500) {
+        padding: 0rem 0 3rem;
     }
 }
 
+// Top links in navigation
 .top-links {
     list-style: none;
     display: flex;
@@ -67,7 +74,7 @@ export default {
         cursor: pointer;
         position: relative;
         border-radius: $border-radius;
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         background-color: rgba($col-tertiary, 0.3);
         transition: all 0.1s ease-out;
         box-shadow: $shadow-3;
@@ -78,23 +85,19 @@ export default {
 
         @include respond(900) {
             flex: 1;
-            text-align: center;
         }
-        &--2 {
-			@include respond(700) {
+        @include respond(700) {
+            &--2 {
                 display: none;
             }
-		}
-        &--4{
-			@include respond(900) {
+        }
+        @include respond(900) {
+            &--4 {
                 display: none;
             }
-		}
-
-        &--1,
-        &--3 ,
-        &--5 {
-            @include respond(500) {
+        }
+        @include respond(500) {
+            &--1, &--3, &--5 {
                 display: none;
             }
         }
@@ -102,22 +105,17 @@ export default {
         &:hover {
             transform: translateY(-3px);
             background-color: lighten($col-tertiary, 5%);
-            box-shadow: $shadow-3;
-            color: currentColor;
-            text-decoration: none;
         }
-
         &:active {
             transform: translateY(-2px);
         }
-
         &:focus {
             outline: none;
         }
 
+        // Dropdown hover functionality
         &--dd {
             z-index: 5000;
-
             &:hover > .dropdown {
                 opacity: 1;
                 visibility: visible;
@@ -125,20 +123,19 @@ export default {
         }
     }
 
+    // Links within top links
     &__link {
         padding: 0.3rem 2rem;
         display: block;
         color: currentColor;
         text-decoration: none;
-
-        &:link,
-        &:visited {
+        &:link, &:visited {
             color: currentColor;
-            text-decoration: none;
         }
     }
 }
 
+// Dropdown menu styles
 .dropdown {
     position: absolute;
     list-style: none;
@@ -154,7 +151,6 @@ export default {
         padding: 0.1rem 2rem;
         box-shadow: $shadow-3;
         border-radius: $border-radius;
-   
 
         &:hover {
             background-color: $col-primary;
@@ -164,3 +160,4 @@ export default {
     }
 }
 </style>
+

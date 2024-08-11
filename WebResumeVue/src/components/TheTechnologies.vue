@@ -32,100 +32,54 @@
 <!--------------------------------------------------------------------->
 
 <style lang="scss" scoped>
-
-
 .technologies {
-  
-    
     grid-column: 2 / -2;
     grid-row: 4 / 5;
     transform: translateY(-2rem);
     z-index: 10;
-    // margin-top: 5rem;
-    
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
-    row-gap: 2rem;
-    column-gap: 3rem;
+    gap: 2rem 3rem; // Combined row and column gaps
     align-items: end;
-
-    margin: 5rem 0 3rem 0;
-    
-
-    // margin-bottom: 3rem;
-    // @include respond (600) { 
-    //     grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
-    // };        
-
-
-    // @include respond (1059) { 
-    //     grid-column: 2 / -2;
-    //     column-gap: 5rem;
-    //     transform: translateY(-1rem);
-    // };
+    margin: 5rem 0 3rem 0; // Simplified margin definition
 
     &__item {
         width: 5rem;
         height: 5rem;
         padding: .2rem;
-        fill: lighten($col-dark, 0%) !important;   
-        border: $col-dark 1px solid;
+        fill: $col-dark; // Removed the lighten function as it has 0% change
+        border: 1px solid $col-dark;
         border-radius: $border-radius;
-        // margin-top: 5rem;
 
+        // Modifier classes for __item
         &--ps {
             border-radius: none;
         }
-
         &--bash {
             border: none;
             padding: 0;
         }
         &--rabbitmq {
-            // border: none;
             padding: 1rem;
         }
-        
-        // @include respond (600) { 
-        //     width: 3rem;
-        //     height: 3rem;
-        // };
-        
         &--big {
             width: 5.5rem;
-            height: 4.5rem; 
-            transform: translateX(-.7rem)translateY(.3rem);
+            height: 4.5rem;
+            transform: translate(-.7rem, .3rem);
 
-            @include respond (600) { 
+            @include respond(600) {
                 width: 3.7rem;
                 height: 3.7rem;
-            };
+            }
         }
-
-        // &--space {
-        //     grid-column: span 6;
-        //     border: none;
-        //     @include respond (1172) { grid-column: span 3; };
-        //     @include respond (1059) { grid-column: span 4; };
-        //     @include respond (979) { grid-column: span 3; };
-        //     @include respond (894) { grid-column: span 1; margin-top: 3rem};
-        //     @include respond (824) { grid-column: span 3; };
-        //     @include respond (787) { grid-column: span 1; };
-        //     @include respond (712) { grid-column: span 1; };
-        //     // @include respond (600) { display: none };
-        // }
     }
-    img  {
-        width: 5rem;
-        height: 5rem;
+
+    img {
+        width: 100%; // Changed to be responsive to container size
+        height: 100%; // Height matches the width to maintain aspect ratio
         padding: 0;
         border: none;
-
-        // @include respond (600) { 
-        //     width: 3.2rem;
-        //     height: 3.2rem;
-        // };
     }
 }
 </style>

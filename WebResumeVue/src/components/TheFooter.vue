@@ -1,10 +1,15 @@
 <template>
-    <div class="footer" id="contacts">
 
-        <p>chris12aug@yahoo.com</p>
-                <p>+356 79310212</p>
-                <p>61 'Koala',&nbsp;&nbsp;St&nbsp;Edward&nbsp;street,&nbsp;&nbsp;Birzebbuga,&nbsp;&nbsp;Malta EU</p>
-    </div>
+    <footer class="site-footer" id="contacts">
+        <div class="footer-content">
+            <p class="email">Email: <a href="mailto:chris12aug@yahoo.com">chris12aug@yahoo.com</a></p>
+            <p class="phone">Phone: <a href="tel:+35679310212">+356 79310212</a></p>
+            <address>
+                61 'Koala', St Edward Street, Birzebbuga, Malta EU
+            </address>
+        </div>
+    </footer>
+
 </template>
 
 <!--------------------------------------------------------------------->
@@ -18,92 +23,33 @@ export default {
 <!--------------------------------------------------------------------->
 
 <style lang="scss" scoped>
-.footer {
-
-    color: lighten($color: $col-dark, $amount: 5%);
-    grid-column: 1 / -1;
-    grid-row: 5 / 6;
-    z-index: 10;
+.site-footer {
     background-color: lighten($color: $col-dark, $amount: 5%);
+    grid-column: 1 / -1;
     width: 100%;
-    color: $col-white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    color: #F8F8FF; // Ghost white text color for better readability
 
-    color: $col-white;
-        margin-top: 0.5rem;
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
-        padding: 1rem;
-        text-align: center;
-        letter-spacing: .2rem;
-        font-size: 1.4rem;
+        p, address {
+            font-size: 14px;
+            line-height: 1.5;
+            a {
+                color: #A4B0BE; // Soothing blue-gray for links
+                text-decoration: none;
 
-
-    &__left {
-
-        text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
-
-        p {
-            // margin-bottom: .5rem;
-            font-size: 1.2rem;
-            font-family: $font-display;
-
-            &:last-child {
-                margin-top: -.3rem;
+                &:hover {
+                    text-decoration: underline;
+                }
             }
-
-            @include respond (1100) {
-                font-size: 1.5rem;
-
-            }
-
-         
         }
     }
-
-    &__right {
-        opacity: 1;
-    }
-
-    &__link:visited,
-    &__link:link {
-        color: currentColor;
-    }
-
-    &__icon {
-
-        height: 3.2rem;
-        width: 3.2rem;
-        fill: currentColor;
-        border: 1px solid currentColor;
-        border-radius: $border-radius;
-        padding: .3rem;
-
-        display: block;
-        margin: auto;
-        box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
-
-
-        @include respond (1100) {
-            height: 2.5rem;
-            width: 2.5rem;
-        }
-
-        ;
-
-        &:hover {
-            background-color: $col-tertiary;
-        }
-    }
-
-    &__bottom {
-        grid-column: 1 / -1;
-        
-        color: $col-white;
-        margin-top: 0.5rem;
-
-        padding: 1rem;
-        text-align: center;
-        letter-spacing: .2rem;
-    }
-
 }
 </style>

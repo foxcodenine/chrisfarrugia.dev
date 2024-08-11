@@ -4,7 +4,7 @@
         <div class="arrow__pos-top" >.</div>
 
         <a class="arrow arrow__remove">
-            <svg><use href="../assets/svg/sprite.svg#icon-arrow-14" ></use></svg>
+            <svg><use href="@/assets/svg/sprite.svg#icon-arrow-14" ></use></svg>
         </a>
 
     </div>
@@ -42,7 +42,19 @@ export default {
 
 
 .arrow {
-
+    z-index: 100000;
+    position: fixed;
+    float: right;
+    // right: 10rem;
+    transform: rotate(-90deg);
+    background-color: lighten($col-dark, 5%);
+    padding: .4rem;
+    border-radius: $border-radius;
+    width: 3rem;
+    height: 3rem;
+    bottom: 2.5rem;
+    color: #F5F5FA;
+    transition: all .2s ease;
     &__remove{
         opacity: 0;
         cursor: default;
@@ -67,19 +79,7 @@ export default {
 
 
     
-    z-index: 100;
-    position: fixed;
-    float: right;
-    // right: 10rem;
-    transform: rotate(-90deg);
-    background-color: lighten($col-dark, 5%);
-    padding: .4rem;
-    border-radius: $border-radius;
-    width: 3rem;
-    height: 3rem;
-    bottom: 2.5rem;
-    color: #F5F5FA;
-    transition: all .2s ease;
+
     
     &:hover {
         color: lighten($col-tertiary, 0%);
