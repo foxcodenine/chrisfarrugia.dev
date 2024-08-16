@@ -15,6 +15,17 @@
 					<li v-on:click="openCertifications('VETAward-min.png')" class="dropdown__item">MQF</li>
 					<li v-on:click="openCertifications('zend.jpg')" class="dropdown__item">Zend</li>
 					<li v-on:click="openCertifications('lpic1.png')" class="dropdown__item">Lpic-1</li>
+					<li v-on:click="openCertifications('UC-Laravel.jpg')" class="dropdown__item">UC-Laravel</li>
+					<li v-on:click="openCertifications('UC-Apache.jpg')" class="dropdown__item">UC-Apache</li>
+					<li v-on:click="openCertifications('UC-Docker.jpg')" class="dropdown__item">UC-Docker</li>
+					<li v-on:click="openCertifications('UC-Web-App-Deploy.jpg')" class="dropdown__item">UC-Web-App-Deploy</li>
+					<li v-on:click="openCertifications('UC-JavaScript.jpg')" class="dropdown__item">UC-JavaScript</li>
+					<li v-on:click="openCertifications('UC-NodeJS.jpg')" class="dropdown__item">UC-NodeJS</li>
+					<li v-on:click="openCertifications('UC-Adv-Css-Sass.jpg')" class="dropdown__item">UC-A-Css-Sass</li>
+					<li v-on:click="openCertifications('UC-Tailwind.jpg')" class="dropdown__item">UC-Tailwind</li>
+					<li v-on:click="openCertifications('UC-Vue.jpg')" class="dropdown__item">UC-Vue</li>
+					<li v-on:click="openCertifications('UC-Golang-Web.jpg')" class="dropdown__item">UC-Golang-Web</li>
+	
 				</ul>
 			</li>
 
@@ -148,7 +159,7 @@ export default {
     &__item {
         background-color: lighten($col-tertiary, 5%);
         margin-top: 0.2rem;
-        padding: 0.1rem 2rem;
+        padding: 0.1rem 0rem;
         box-shadow: $shadow-3;
         border-radius: $border-radius;
 

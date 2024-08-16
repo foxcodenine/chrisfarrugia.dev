@@ -1,132 +1,180 @@
 <template>
 
-	<div class="containt">
-		<div class="circles">
-			<div class="circles__profile"></div>
-		</div>
-		<div class="text">
-			<div class="text__name">Christopher</div>
-			<div class="text__surname">Farrugia</div>
-			<div class="text__line"></div>
-			<div class="text__small">software developer</div>
-			<div class="text__small">linux geek</div>
-			
-<div class="text__small">linux geek</div>
-		</div>
-		<div class="btns">
-			<button>Git Hub</button>
-			<button>Linkedin</button>
-			<button>CV</button>
-		</div>
-	</div>
 
-	https://www.templateonweb.com/demo/f457c545a9ded88f18ecee47145a72c0
+		<div class="grid">
+
+			<div class="top__bg"></div>
+			<!-- <div class="middle__bg"></div> -->
+
+			<the-navbar v-on:openCertifications="openCertifications"></the-navbar>
+			<the-hero></the-hero>
+			<the-profile-image></the-profile-image>
+			<the-technologies></the-technologies>
+
+			<the-footer></the-footer>
+			<the-arrow></the-arrow>
+			<transition name="fade" mode="out-in" appear>
+				<the-certifications v-on:closeCertifications="showCertification = false" :certification="image"
+					v-if="showCertification">
+				</the-certifications>
+			</transition>
+		</div>
+
+
+
+
 </template>
+
+<!-- --------------------------------------------------------------- -->
 
 <script setup>
 
+import TheNavbar from "@/components/TheNavbar.vue";
+import TheHero from "@/components/TheHero.vue";
+import TheProfileImage from "@/components/TheProfileImage.vue";
+import TheTechnologies from "@/components/TheTechnologies.vue";
+
+import TheFooter from "@/components/TheFooter.vue";
+import TheCertifications from "@/components/TheCertifications.vue";
+import TheArrow from "@/components/TheArrow.vue";
+
+
+import { ref } from "vue";
+
+const showCertification = ref(false);
+const image = ref(false);
+
+
+function openCertifications(c) {
+	image.value = c;
+	showCertification.value = true;
+}
 </script>
 
-<style lang="scss" scoped>
-.containt {
-	background-color: white;
-	background-image: url("@/assets/images/office.webp");
-	background-size: cover;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-evenly;
+<!-- --------------------------------------------------------------- -->
 
-	max-width: 600px;
-	min-height: 100vh;
-	margin: 0 auto;
+<style lang="scss">
+
+.grid {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 8rem repeat(12, 1fr) 8rem;
+	grid-template-rows: max-content max-content max-content 1fr max-content;
+	min-height: calc(100vh - 1rem);
+
+
+	@include respond (500) {
+		grid-template-columns: 4rem repeat(12, 1fr) 4rem;
+	}
+
+	;
 }
 
-.circles {
+.top__bg {
+	grid-column: 1 / -1;
+	grid-row: 1 / 5;
+	// clip-path: polygon(0 0 , 100% 0, 100% 80%, 0% 90%);
+	// margin-bottom: -3rem;
 
-	background-color: white;
-	background-image: url("@/assets/images/coding.jpg");
-	background-size: cover;
 
 
-	height: 90vw;
-	width: 90vw;
+}
 
-	max-height: 33rem;
-	max-width: 33rem;
+.top__bg,
+.middle__bg {
+	background-color: lighten($col-light, 5%);
+	z-index: 1;
+	position: relative;
 
-	border-radius: 10%;
-	border-top-left-radius: 50%;
-	border-top-right-radius: 25%;
 
-	opacity: .95;
-
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	&__profile {
-		background-color: white;
-		background-image: url("@/assets/images/profile.jpg");
+	&::before {
+		content: '';
+		background-image: url(@/assets/images/coding.webp), url(./assets/img/hero_bg22.png), url(./assets/img/hero_bg222.png);
 		background-size: cover;
-		height: 80vw;
-		width: 80vw;
+		background-position-y: -20rem;
+		background-size: 100%;
+		background-repeat: repeat;
+		opacity: .45;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 2;
 
-		max-height: 30rem;
-		max-width: 30rem;
-		border-radius: 50%;
-		transform: translateY(-0.5rem);
-		
+		@include respond (1200) {
+			background-position-y: -15rem;
+		}
+
+		;
+
+		@include respond (1100) {
+			background-position-y: -10rem;
+		}
+
+		;
+
+		@include respond (1000) {
+			background-position-y: -5rem;
+		}
+
+		;
+
+		@include respond (900) {
+			background-position-y: -0rem;
+		}
+
+		;
+		// @include respond (929) {background-position-y: 2rem;};
 	}
 }
 
-.text {
-	opacity: .9;
-	color: white;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	text-shadow: 1px 1px 2px black;
 
-	font-family: $font-display;
-	width: 12rem;
+.middle__bg {
+	grid-column: 1 / -1;
+	grid-row: 5 / 6;
+	clip-path: polygon(0 7%, 100% 10%, 100% 100%, 0% 100%);
+	background-position-y: 0rem;
+	margin-top: -2rem;
 
-	&__name, &__surname {
-		font-size: 1.8rem;
-		font-weight: 500;
-		line-height: 1.6rem;
+	@include respond (899) {
+		margin-top: -8rem
 	}
 
-	&__line {
-	
-		width: 100%;
-		height: 1px;
-		background-color: white;
-		margin: .8rem 0;
-	
+	;
+
+	@include respond (824) {
+		margin-top: -2rem
+	}
+
+	;
+
+	@include respond (791) {
+		margin-top: -8rem
+	}
+
+	;
+
+
+	&::before {
+		content: '';
+		background-position-y: 0rem;
+
+		@include respond (600) {
+			background-position-y: 20rem;
+		}
+
+		;
 	}
 }
 
-.btns {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity .4s linear;
+}
 
-
-
-	button {
-		display: flex;
-
-		align-items: center;
-		justify-content: center;
-		width: 12rem;
-		padding: 0.5rem;
-		border: none;
-		margin-top: .5rem;
-		border-radius: 3px;
-
-	}
+.fade-enter-from,
+.fade-leave-to {
+	opacity: 0;
 }
 </style>

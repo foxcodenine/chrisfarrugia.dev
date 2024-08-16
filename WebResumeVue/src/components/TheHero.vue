@@ -72,7 +72,7 @@ import BaseButton from "./UI/BaseButton.vue";
     &__title {
         font-size: 6rem;
         font-weight: 600;
-        font-family: $font-display;
+        font-family: 'Jost', $font-display;
         color: lighten($col-dark, 5%);
         fill: $col-white;
         position: relative;

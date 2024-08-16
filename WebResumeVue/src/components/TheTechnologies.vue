@@ -39,6 +39,7 @@
     z-index: 10;
     width: 100%;
     display: grid;
+    align-content: center;
     grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
     gap: 2rem 3rem; // Combined row and column gaps
     align-items: end;

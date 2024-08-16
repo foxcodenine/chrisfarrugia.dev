@@ -41,7 +41,7 @@ export default {
     display: inline-block;
     text-transform: capitalize;
     text-decoration: none;
-    padding: .4rem 2rem; 
+    padding: .5rem 2rem; 
     font-size: 1.7rem;  
     font-weight: 500;
     font-family: $font-text;
