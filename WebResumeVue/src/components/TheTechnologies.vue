@@ -17,17 +17,19 @@
             <use href="/svg/sprite.svg#icon-bash"></use>
         </svg>
         <svg class="technologies__item ">
+            <use href="/svg/sprite.svg#icon-node-js"></use>
+        </svg>
+        <svg class="technologies__item ">
+            <use href="/svg/sprite.svg#icon-git"></use>
+        </svg>
+        <svg class="technologies__item ">
             <use href="/svg/sprite.svg#icon-go"></use>
         </svg>
 
         <!-- <svg class="technologies__item "><use href="/svg/sprite.svg#icon-photoshop"></use></svg> -->
-        <svg class="technologies__item ">
-            <use href="/svg/sprite.svg#icon-git"></use>
-        </svg>
 
-        <svg class="technologies__item ">
-            <use href="/svg/sprite.svg#icon-mysql"></use>
-        </svg>
+
+
         <svg class="technologies__item ">
             <use href="/svg/sprite.svg#icon-mongodb"></use>
         </svg>
@@ -35,9 +37,11 @@
             <use href="/svg/sprite.svg#icon-redis"></use>
         </svg>
         <!-- <img class="technologies__item " src="/svg/bash.svg"> -->
+
         <svg class="technologies__item ">
-            <use href="/svg/sprite.svg#icon-aws"></use>
+            <use href="/svg/sprite.svg#icon-mysql"></use>
         </svg>
+
         <!-- <svg class="technologies__item "><use href="/svg/sprite.svg#icon-html"></use></svg>
         <svg class="technologies__item "><use href="/svg/sprite.svg#icon-css"></use></svg> -->
         <svg class="technologies__item ">
