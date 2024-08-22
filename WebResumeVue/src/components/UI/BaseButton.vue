@@ -1,7 +1,6 @@
 <template>
     
-    <button class="btn" v-bind:class="btnClass">
-        <a v-bind:href="myLink" target="_blank"></a>
+    <button class="btn" v-bind:class="btnClass">        
         <slot></slot>        
     </button>
     
@@ -41,7 +40,7 @@ export default {
     display: inline-block;
     text-transform: capitalize;
     text-decoration: none;
-    padding: .5rem 2rem; 
+    padding: .65rem 2rem; 
     font-size: 1.7rem;  
     font-weight: 500;
     font-family: $font-text;
@@ -78,7 +77,7 @@ export default {
      }
 
     &--git {
-    padding: .2rem .2rem; 
+        padding: .2rem .2rem 0 .4rem; 
     }
 }
 </style>

@@ -1,50 +1,64 @@
 <template>
-	<nav class="nav-bar" id="home">
+    <nav class="nav-bar" id="home">
 
-		<ul class="top-links">
-			<li class="top-links__item top-links__item--1"><a class="top-links__link"
-					href="https://www.linkedin.com/in/christopher-farrugia-3a51184b/" target="_blank">Linkedin</a></li>
-			<li class="top-links__item top-links__item--2"><a class="top-links__link"
-					href="https://www.facebook.com/chrisfarrugia12/" target="_blank">Facebook</a></li>
-			<li class="top-links__item top-links__item--3"><a class="top-links__link"
-					href="https://github.com/foxcodenine" target="_blank">Github</a></li>
+        <ul class="top-links">
+            <li class="top-links__item top-links__item--1"><a class="top-links__link"
+                    href="https://www.linkedin.com/in/christopher-farrugia-3a51184b/" target="_blank">Linkedin</a></li>
+                    
+            <li class="top-links__item top-links__item--2"><a class="top-links__link"
+                    href="https://www.facebook.com/chrisfarrugia12/" target="_blank">Facebook</a></li>
 
-			<li v-on:click.prevent='false' class="top-links__item top-links__item--4 top-links__item--dd">
-				<a class="top-links__link" href="#">Certifications</a>
-				<ul class="dropdown">
-					<li v-on:click="openCertifications('VETAward-min.png')" class="dropdown__item">MQF</li>
-					<li v-on:click="openCertifications('zend.jpg')" class="dropdown__item">Zend</li>
-					<li v-on:click="openCertifications('lpic1.png')" class="dropdown__item">Lpic-1</li>
-					<li v-on:click="openCertifications('UC-Laravel.jpg')" class="dropdown__item">UC-Laravel</li>
-					<li v-on:click="openCertifications('UC-Apache.jpg')" class="dropdown__item">UC-Apache</li>
-					<li v-on:click="openCertifications('UC-Docker.jpg')" class="dropdown__item">UC-Docker</li>
-					<li v-on:click="openCertifications('UC-Web-App-Deploy.jpg')" class="dropdown__item">UC-Web-App-Deploy</li>
-					<li v-on:click="openCertifications('UC-JavaScript.jpg')" class="dropdown__item">UC-JavaScript</li>
-					<li v-on:click="openCertifications('UC-NodeJS.jpg')" class="dropdown__item">UC-NodeJS</li>
-					<li v-on:click="openCertifications('UC-Adv-Css-Sass.jpg')" class="dropdown__item">UC-A-Css-Sass</li>
-					<li v-on:click="openCertifications('UC-Tailwind.jpg')" class="dropdown__item">UC-Tailwind</li>
-					<li v-on:click="openCertifications('UC-Vue.jpg')" class="dropdown__item">UC-Vue</li>
-					<li v-on:click="openCertifications('UC-Golang-Web.jpg')" class="dropdown__item">UC-Golang-Web</li>
-	
-				</ul>
-			</li>
+            <li class="top-links__item top-links__item--3"><a class="top-links__link"
+                    href="https://github.com/foxcodenine" target="_blank">Github</a></li>
 
-			<li class="top-links__item top-links__item--5 top-links__item--active"><a class="top-links__link"
-					href="#contacts">Contact&nbsp;me</a></li>
-		</ul>
-	</nav>
+            <li class="top-links__item top-links__item--4" @click="showMultiple"><a class="top-links__link">Certificates</a> </li>
+
+            <li class="top-links__item top-links__item--5 top-links__item--active"><a class="top-links__link"
+                    href="#contacts">Contacts</a></li>
+        </ul>
+        <vue-easy-lightbox :visible="visibleRef" :imgs="imgsRef" :index="indexRef" @hide="onHide"></vue-easy-lightbox>
+    </nav>
 </template>
 
 <!--------------------------------------------------------------------->
 
-<script>
-export default {
-	methods: {
-		openCertifications(c) {
-			this.$emit('openCertifications', c)
-		}
-	}
+<script setup>
+import { ref } from 'vue';
+import VueEasyLightbox from 'vue-easy-lightbox'
+
+
+const visibleRef = ref(false)
+const indexRef = ref(0) // default 0
+const imgsRef = ref([])
+
+
+function onShow() {
+    visibleRef.value = true;
 }
+
+function showMultiple() {
+    imgsRef.value = [  
+        'images/certifications/lpic1.png',
+        'images/certifications/zend.jpg',
+        'images/certifications/VETAward-min.png',
+        'images/certifications/UC-Vue.jpg',
+        'images/certifications/UC-NodeJS.jpg',
+        'images/certifications/UC-Docker.jpg',
+        'images/certifications/UC-Golang-Web.jpg',
+        'images/certifications/UC-Laravel.jpg',
+        'images/certifications/UC-Apache.jpg',
+        'images/certifications/UC-Tailwind.jpg',
+        'images/certifications/UC-Web-App-Deploy.jpg',
+        'images/certifications/UC-Adv-Css-Sass.jpg',
+        'images/certifications/UC-JavaScript.jpg',
+    ]
+
+    indexRef.value = 0 // index of imgList
+    onShow()
+}
+
+function onHide() { visibleRef.value = false }
+
 </script>
 
 <!--------------------------------------------------------------------->
@@ -61,10 +75,12 @@ export default {
     @include respond(900) {
         margin-bottom: 1rem;
     }
+
     @include respond(600) {
         padding: 5rem 0 3rem;
     }
-    @include respond(500) {
+
+    @include respond(400) {
         padding: 0rem 0 3rem;
     }
 }
@@ -94,21 +110,16 @@ export default {
         width: 14rem;
         text-align: center;
 
-        @include respond(900) {
-            flex: 1;
-        }
-        @include respond(700) {
-            &--2 {
-                display: none;
-            }
-        }
-        @include respond(900) {
-            &--4 {
-                display: none;
-            }
-        }
-        @include respond(500) {
-            &--1, &--3, &--5 {
+        @include respond(900) { flex: 1; }
+
+        @include respond(700) { &--2 { display: none; } }
+
+        @include respond(900) { &--3 { display: none; } }
+
+        @include respond(400) {
+            &--1,
+            &--4,
+            &--5 {
                 display: none;
             }
         }
@@ -117,9 +128,11 @@ export default {
             transform: translateY(-3px);
             background-color: lighten($col-tertiary, 5%);
         }
+
         &:active {
             transform: translateY(-2px);
         }
+
         &:focus {
             outline: none;
         }
@@ -127,7 +140,8 @@ export default {
         // Dropdown hover functionality
         &--dd {
             z-index: 5000;
-            &:hover > .dropdown {
+
+            &:hover>.dropdown {
                 opacity: 1;
                 visibility: visible;
             }
@@ -140,7 +154,9 @@ export default {
         display: block;
         color: currentColor;
         text-decoration: none;
-        &:link, &:visited {
+
+        &:link,
+        &:visited {
             color: currentColor;
         }
     }
@@ -171,4 +187,3 @@ export default {
     }
 }
 </style>
-

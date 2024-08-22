@@ -1,6 +1,12 @@
 <template>
-    <div class="hero">
+    <div class="hero" :class="{'zindex999': visibleRef}">
 
+        <vue-easy-lightbox
+      :visible="visibleRef"
+      :imgs="imgsRef"
+      :index="indexRef"
+      @hide="onHide"
+    ></vue-easy-lightbox>
 
         <div class="hero__title">
             Chris&nbsp;Farrugia
@@ -26,11 +32,13 @@
         </div>
 
         <div class="hero__btns">
-            <base-button class="btn--tertiary" myLink='https://foxcode.io/010'>View&nbsp;my&nbsp;CV</base-button>
+            <base-button class="btn--tertiary"  @click.privent="showSingle">View&nbsp;my&nbsp;CV</base-button>
             <base-button class="btn--tertiary btn--git" myLink='https://github.com/foxcodenine'>
-                <svg class="git">
-                    <use href="@/assets/svg/sprite.svg#icon-github"></use>
-                </svg>
+                <a href="https://github.com/foxcodenine" target="_blank">
+                    <svg class="git">
+                        <use href="/svg/sprite.svg#icon-github"></use>
+                    </svg>
+                </a>
             </base-button>
         </div>
 
@@ -42,8 +50,23 @@
 <!--------------------------------------------------------------------->
 
 <script setup>
+import { ref } from "vue";
 import BaseButton from "./UI/BaseButton.vue";
+import VueEasyLightbox from 'vue-easy-lightbox'
 
+const visibleRef = ref(false)
+
+const imgsRef = ref(null)
+
+const showSingle = () => {
+    imgsRef.value = 'images/certifications/Chris_CV.jpg'
+    onShow()
+}
+
+const onShow = () => {
+    visibleRef.value = true
+}
+const onHide = () => (visibleRef.value = false)
 </script>
 
 <!--------------------------------------------------------------------->
@@ -51,17 +74,20 @@ import BaseButton from "./UI/BaseButton.vue";
 <style lang="scss" scoped>
 // General settings for icons
 .git {
-    fill: currentColor;
-    width: 2.5rem;
+    fill: lighten($col-dark, 5%);;
+    width: 2.5rem !important;
     height: 2.5rem;
+    
 }
 
 // Hero section styling
 .hero {
+    
     display: grid;
     grid-column: 2 / -2;
     grid-row: 2 / 4;
     grid-template-columns: repeat(12, 1fr);
+    z-index: 10;
     z-index: 10;
 
     @include respond(900) {
@@ -140,5 +166,8 @@ import BaseButton from "./UI/BaseButton.vue";
             margin-bottom: 8rem;
         }
     }
+}
+.zindex999 {
+    z-index: 999;
 }
 </style>

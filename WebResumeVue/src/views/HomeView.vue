@@ -1,28 +1,18 @@
 <template>
+	<div class="grid">
 
+		<div class="top__bg"></div>
+		<!-- <div class="middle__bg"></div> -->
 
-		<div class="grid">
+		<the-navbar></the-navbar>
+		<the-hero></the-hero>
+		<the-profile-image></the-profile-image>
+		<the-technologies></the-technologies>
 
-			<div class="top__bg"></div>
-			<!-- <div class="middle__bg"></div> -->
+		<the-footer></the-footer>
+		<the-arrow></the-arrow>
 
-			<the-navbar v-on:openCertifications="openCertifications"></the-navbar>
-			<the-hero></the-hero>
-			<the-profile-image></the-profile-image>
-			<the-technologies></the-technologies>
-
-			<the-footer></the-footer>
-			<the-arrow></the-arrow>
-			<transition name="fade" mode="out-in" appear>
-				<the-certifications v-on:closeCertifications="showCertification = false" :certification="image"
-					v-if="showCertification">
-				</the-certifications>
-			</transition>
-		</div>
-
-
-
-
+	</div>
 </template>
 
 <!-- --------------------------------------------------------------- -->
@@ -35,7 +25,6 @@ import TheProfileImage from "@/components/TheProfileImage.vue";
 import TheTechnologies from "@/components/TheTechnologies.vue";
 
 import TheFooter from "@/components/TheFooter.vue";
-import TheCertifications from "@/components/TheCertifications.vue";
 import TheArrow from "@/components/TheArrow.vue";
 
 
@@ -45,16 +34,12 @@ const showCertification = ref(false);
 const image = ref(false);
 
 
-function openCertifications(c) {
-	image.value = c;
-	showCertification.value = true;
-}
+
 </script>
 
 <!-- --------------------------------------------------------------- -->
 
 <style lang="scss">
-
 .grid {
 	width: 100%;
 	display: grid;
@@ -76,8 +61,6 @@ function openCertifications(c) {
 	// clip-path: polygon(0 0 , 100% 0, 100% 80%, 0% 90%);
 	// margin-bottom: -3rem;
 
-
-
 }
 
 .top__bg,
@@ -89,7 +72,7 @@ function openCertifications(c) {
 
 	&::before {
 		content: '';
-		background-image: url(@/assets/images/coding.webp), url(./assets/img/hero_bg22.png), url(./assets/img/hero_bg222.png);
+		background-image: url('/images/coding.webp'), url('');
 		background-size: cover;
 		background-position-y: -20rem;
 		background-size: 100%;
@@ -106,26 +89,18 @@ function openCertifications(c) {
 			background-position-y: -15rem;
 		}
 
-		;
-
 		@include respond (1100) {
 			background-position-y: -10rem;
 		}
-
-		;
 
 		@include respond (1000) {
 			background-position-y: -5rem;
 		}
 
-		;
-
 		@include respond (900) {
 			background-position-y: -0rem;
 		}
 
-		;
-		// @include respond (929) {background-position-y: 2rem;};
 	}
 }
 
@@ -138,23 +113,16 @@ function openCertifications(c) {
 	margin-top: -2rem;
 
 	@include respond (899) {
-		margin-top: -8rem
+		margin-top: -8rem;
 	}
-
-	;
 
 	@include respond (824) {
-		margin-top: -2rem
+		margin-top: -2rem;
 	}
-
-	;
 
 	@include respond (791) {
-		margin-top: -8rem
+		margin-top: -8rem;
 	}
-
-	;
-
 
 	&::before {
 		content: '';
@@ -162,19 +130,9 @@ function openCertifications(c) {
 
 		@include respond (600) {
 			background-position-y: 20rem;
-		}
-
-		;
+		}		
 	}
 }
 
-.fade-enter-active,
-.fade-leave-active {
-	transition: opacity .4s linear;
-}
 
-.fade-enter-from,
-.fade-leave-to {
-	opacity: 0;
-}
 </style>

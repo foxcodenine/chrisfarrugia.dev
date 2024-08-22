@@ -1,26 +1,57 @@
 <template>
     <ul class="technologies ">
         <!-- <span class="technologies__item technologies__item--space" ></span> -->
-        <svg class="technologies__item "><use href="../assets/svg/sprite.svg#icon-php" ></use></svg>
-        <svg class="technologies__item "><use href="../assets/svg/sprite.svg#icon-laravel"></use></svg>
-        <svg class="technologies__item "><use href="../assets/svg/sprite.svg#icon-javascript"></use></svg>
-        <svg class="technologies__item "><use href="../assets/svg/sprite.svg#icon-vue2"></use></svg>
-        <svg class="technologies__item technologies__item--bash "><use href="../assets/svg/sprite.svg#icon-bash"></use></svg>
-        <svg class="technologies__item "><use href="../assets/svg/sprite.svg#icon-go"></use></svg>
-        <!-- <svg class="technologies__item "><use href="../assets/svg/sprite.svg#icon-photoshop"></use></svg> -->
-        <svg class="technologies__item "><use href="../assets/svg/sprite.svg#icon-git"></use></svg>
- 
-        <svg class="technologies__item "><use href="../assets/svg/sprite.svg#icon-mysql"></use></svg>
-        <svg class="technologies__item "><use href="../assets/svg/sprite.svg#icon-mongodb"></use></svg>
-        <svg class="technologies__item technologies__item--bash"><use href="../assets/svg/sprite.svg#icon-redis"></use></svg>
-        <!-- <img class="technologies__item " src="../assets/svg/bash.svg"> -->
-        <svg class="technologies__item "><use href="../assets/svg/sprite.svg#icon-aws"></use></svg>
-        <!-- <svg class="technologies__item "><use href="../assets/svg/sprite.svg#icon-html"></use></svg>
-        <svg class="technologies__item "><use href="../assets/svg/sprite.svg#icon-css"></use></svg> -->
-        <svg class="technologies__item "><use href="../assets/svg/sprite.svg#icon-sass"></use></svg>
-        <svg class="technologies__item "><use href="../assets/svg/sprite.svg#icon-apache"></use></svg>
-        <svg class="technologies__item technologies__item--rabbitmq"><use href="../assets/svg/sprite.svg#icon-rabbitmq"></use></svg>
-        <svg class="technologies__item technologies__item--bash"><use href="../assets/svg/sprite.svg#icon-linux"></use></svg>
+        <svg class="technologies__item ">
+            <use href="/svg/sprite.svg#icon-php"></use>
+        </svg>
+        <svg class="technologies__item ">
+            <use href="/svg/sprite.svg#icon-laravel"></use>
+        </svg>
+        <svg class="technologies__item ">
+            <use href="/svg/sprite.svg#icon-javascript"></use>
+        </svg>
+        <svg class="technologies__item ">
+            <use href="/svg/sprite.svg#icon-vue"></use>
+        </svg>
+        <svg class="technologies__item technologies__item--bash ">
+            <use href="/svg/sprite.svg#icon-bash"></use>
+        </svg>
+        <svg class="technologies__item ">
+            <use href="/svg/sprite.svg#icon-go"></use>
+        </svg>
+
+        <!-- <svg class="technologies__item "><use href="/svg/sprite.svg#icon-photoshop"></use></svg> -->
+        <svg class="technologies__item ">
+            <use href="/svg/sprite.svg#icon-git"></use>
+        </svg>
+
+        <svg class="technologies__item ">
+            <use href="/svg/sprite.svg#icon-mysql"></use>
+        </svg>
+        <svg class="technologies__item ">
+            <use href="/svg/sprite.svg#icon-mongodb"></use>
+        </svg>
+        <svg class="technologies__item technologies__item--bash">
+            <use href="/svg/sprite.svg#icon-redis"></use>
+        </svg>
+        <!-- <img class="technologies__item " src="/svg/bash.svg"> -->
+        <svg class="technologies__item ">
+            <use href="/svg/sprite.svg#icon-aws"></use>
+        </svg>
+        <!-- <svg class="technologies__item "><use href="/svg/sprite.svg#icon-html"></use></svg>
+        <svg class="technologies__item "><use href="/svg/sprite.svg#icon-css"></use></svg> -->
+        <svg class="technologies__item ">
+            <use href="/svg/sprite.svg#icon-sass"></use>
+        </svg>
+        <svg class="technologies__item ">
+            <use href="/svg/sprite.svg#icon-apache"></use>
+        </svg>
+        <svg class="technologies__item technologies__item--rabbitmq">
+            <use href="/svg/sprite.svg#icon-rabbitmq"></use>
+        </svg>
+        <svg class="technologies__item technologies__item--bash"><use href="/svg/sprite.svg#icon-linux"></use></svg>
+        <!-- <img class="technologies__item technologies__item--linux" src="/svg/linux.svg"> -->
+
     </ul>
 </template>
 
@@ -45,6 +76,10 @@
     align-items: end;
     margin: 5rem 0 3rem 0; // Simplified margin definition
 
+    @include respond(370) {
+        gap: 2rem;
+    }
+
     &__item {
         width: 5rem;
         height: 5rem;
@@ -57,13 +92,22 @@
         &--ps {
             border-radius: none;
         }
+
         &--bash {
             border: none;
             padding: 0;
         }
+
+        &--linux {
+            transform: scale(1.15);
+            // opacity: .5;
+
+        }
+
         &--rabbitmq {
             padding: 1rem;
         }
+
         &--big {
             width: 5.5rem;
             height: 4.5rem;

@@ -4,7 +4,7 @@
         <div class="arrow__pos-top" >.</div>
 
         <a class="arrow arrow__remove">
-            <svg><use href="@/assets/svg/sprite.svg#icon-arrow-14" ></use></svg>
+            <svg><use href="/svg/sprite.svg#icon-arrow-14" ></use></svg>
         </a>
 
     </div>

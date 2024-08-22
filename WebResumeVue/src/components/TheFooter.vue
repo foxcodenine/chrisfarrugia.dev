@@ -5,7 +5,7 @@
             <p class="email">Email: <a href="mailto:chris12aug@yahoo.com">chris12aug@yahoo.com</a></p>
             <p class="phone">Phone: <a href="tel:+35679310212">+356 79310212</a></p>
             <address>
-                61 'Koala', St Edward Street, Birzebbuga, Malta EU
+                https://www.linkedin.com/in/christopher-farrugia-3a51184b/
             </address>
         </div>
     </footer>
