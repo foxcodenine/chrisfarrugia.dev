@@ -40,11 +40,12 @@ export default {
     display: inline-block;
     text-transform: capitalize;
     text-decoration: none;
-    padding: .65rem 2rem; 
+    padding: .65rem 4rem; 
     font-size: 1.7rem;  
-    font-weight: 500;
+    font-weight: 600;
     font-family: $font-text;
     border-radius: $border-radius;
+
 
     border: 1px solid rgba($col-dark, .0);
     color: $col-white;
